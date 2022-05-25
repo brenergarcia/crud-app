@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>IWA - CA 2</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+
+  <body>
+    <h1 data-position="header">Irish poets quotes</h1>
+
+    <section data-position="add-quote">
+      <h2>Add quote</h2>
+
+      <form action="/quotes" method="POST">
+        <input type="text" placeholder="Name" name="name" />
+        <input type="text" placeholder="Quote" name="quote" />
+        <br><br>
+        <button class="button" type="submit">Submit</button>
+      </form>
+    </section>
+
+    <section data-position="update-quote">
+      <div>
+        <h2>Replace a quote</h2>
+        <p>
+          Replace first Oscar Wilde's quote with a quote written by George Bernard Shaw.
+        </p>
+        <br><br>
+        <!--create a button that replaces the first quote by Oscar Wilde 
+        to a quote written by Bernard Shaw-->
+        <button class="button" id="update-button">Replace Oscar Wilde's quote</button>
+      </div>
+    </section>
+
+    <section data-position="delete-quote">
+      <div>
+        <h2>Remove Shaw quotes</h2>
+        <p>
+          Delete one Bernard Shaw's quote. Does nothing if there are no more Bernard Shaw's quote.
+        </p><br>
+        <!--create a button to delete Bernard Shaw's quote-->
+        <button class="button" id="delete-button">Delete Bernard Shaw's quote</button>
+      </div>
+      <div id="message"></div>
+    </section>
+
+    <section data-position="quotes">
+      <h2>Quotes</h2>
+
+      <ul class="quotes">
+        <!-- Loop through quotes -->
+        <% for(var i = 0; i < quotes.length; i++) {%>
+        <li class="quote">
+          <!-- Output name from the iterated quote object -->
+          <span><%= quotes[i].name %></span>:
+          <!-- Output quote from the iterated quote object -->
+          <span><%= quotes[i].quote %></span>
+        </li>
+        <% } %>
+      </ul>
+    </section>
+
+    <script src="/main.js"></script>
+  </body>
+</html>
